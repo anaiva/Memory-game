@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>tabla</title>
+    <style>
+        section {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            border: 2px solid blue;
+        }
+
+        .S {
+            background-color: blueviolet;
+        }
+
+        .M {
+            background-color: antiquewhite;
+        }
+
+        .L {
+            background-color: coral;
+        }
+
+
+        .hidden {
+            display: none;
+        }
+
+        form {
+            margin-top: 15%;
+            font-size: 30px;
+            border-radius: 5px;
+            color: white;
+            width: 32%;
+            margin-left: 32%;
+        }
+
+        form,
+        button {
+            border: 4px solid white;
+            padding: 20px;
+            text-align: center;
+
+        }
+
+        button {
+            margin-top: 0px;
+            border-radius: 0px 0px 5px 5px;
+            background-color: white;
+            color: rgb(3, 167, 3);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="" id="prvaTabla" >
+        <label for="velicina">Izabrati velicinu</label>
+        <select name="velicina" id="velicina">
+            <option id="S" value="S">S</option>
+            <option id="M" value="M">M</option>
+            <option id="L" value="L">L</option>
+        </select>
+        <button type="button" onclick="dodajemElemente()">Nova igra</button>
+    </form>
+
+
+    <section>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+        <div class="pocetna"></div>
+
+
+
+    </section>
+
+</body>
+<script>
+    let pocetak=document.getElementById("prvaTabla");
+    let polja = document.querySelectorAll("div");
+    polja = [...polja];
+    
+    console.log(polja);
+
+    var n;
+
+    var klasa = "S";
+    var niz = []
+    
+    function izborTable(n, klasa) { }
+    if (klasa == "S") {
+        n = 12;
+    } else if (klasa == "M") {
+        n = 18;
+    }
+    else if (klasa == "L") {
+        n = 24;
+    }
+    for (var i = 0; i < n; i++) {
+
+        niz[i] = polja[i];
+        console.log(niz[i]);
+        niz[i].classList.add(klasa);
+        for (let j = n; j < polja.length; j++) {
+            polja[j].classList.add("hidden");
+        }
+        
+    pocetak.classList.add("hidden");
+
+
+    console.log(niz);
+
+
+// function myFunction() {
+//     // na sta uticem
+//     polja.forEach(card => card.classList.add("pocetak"))
+//     // var izbor = document.getElementById("velicina").selectedIndex;
+//     // let a=document.getElementsByTagName("option")[izbor].value;
+//     var x = document.getElementById("pocetna");
+//     if (x.style.display === "none") {
+
+//         x.style.display = "block";
+//     } else {
+//         x.style.display = "none";
+//         polja.forEach(card => card.classList.remove("pocetak"));
+//         document.getElementById("pocetna").style.display = "none"; //isto kao x.style.display ... ?
+//         document.getElementById("velicina").style.display = "none";
+//         init()
+//     }
+
+
+// }
+
+</script>
+
+</html>
