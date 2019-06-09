@@ -20,7 +20,7 @@ const brojParova = niz.length / 2;
 let brojacUparenih = 0;
 let brojacKlikova = 0;
 
-const klikFunkcija = function () { //zasto ne uklanja hidden?
+const klikFunkcija = function () {
 
     aktivnoPolje = this;
     if (aktivnoPolje == izabranaPolja[0]) return;
@@ -40,34 +40,41 @@ const klikFunkcija = function () { //zasto ne uklanja hidden?
 
             if (izabranaPolja[0].className === izabranaPolja[1].className) {
                 console.log("Pogodjen par!")
-                izabranaPolja.forEach(card => card.classList.add("off"))
+                // izabranaPolja.forEach(card => card.classList.add("off"))
                 brojacUparenih++;
                 console.log(brojacUparenih);
-                niz = niz.filter(card => !card.classList.contains("off")); // da li treba da se upise niz a ne polja / izbacuje iz niza pronadjene tj. vraca niz bez onih sa klasom off a to su pogodjeni
+                niz = niz.filter(card => card.classList.contains("hidden")); // da li treba da se upise niz a ne polja / izbacuje iz niza pronadjene tj. vraca niz bez onih sa klasom off a to su pogodjeni
 
                 if (brojacUparenih === n / 2) {
 
                     // niz = niz.forEach(card => card.classList.add("off")) //?niz je prazan ali zasto nije off
                     polja.forEach(card => card.classList.add("off"));
                     console.log(niz);
-                    const endTime = new Date().getTime();
-                    const gameTime = (endTime - startTime) / 1000
-                    alert(`Bravo! Vreme igre je: ${gameTime} sekundi ${brojacKlikova}`);
 
-                    // setTimeout(function() { alert(`Bravo! Vreme igre je: ${gameTime} sekundi`); }, 2);
 
-                    location.reload();
-                    funkcijaStart();
+                    function on() {
+                        document.getElementById("overlay").style.display = "block";
+                        const endTime = new Date().getTime();
+                        const gameTime = (endTime - startTime) / 1000
+
+                        setTimeout(function () {
+                            document.getElementById("text").innerHTML = "Broj poteza: " + brojacKlikova +'<br />'+ " Vreme igre: "+gameTime+" sec"},1500);
+                        // setTimeout(function ( ){location.reload();},4000);
+                                    
+
+                        }
+                        on() 
+                        prozorKraj.onclick = function offf() { location.reload() };
+                    }
+                } else {
+                    console.log("Promasaj")
+                    izabranaPolja.forEach(card => card.classList.add("hidden"))
                 }
-            } else {
-                console.log("Promasaj")
-                izabranaPolja.forEach(card => card.classList.add("hidden"))
-            }
-            aktivnoPolje = ""; // reset
-            izabranaPolja.length = 0; //prazan niz
-            niz.forEach(card => card.addEventListener("click", klikFunkcija))
+                aktivnoPolje = ""; // reset
+                izabranaPolja.length = 0; //prazan niz
+                niz.forEach(card => card.addEventListener("click", klikFunkcija))
 
-        }, 1000)
+            }, 1000)
     }
 };
 
@@ -77,38 +84,34 @@ function funkcijaStart() {
     let pocetak = document.getElementById("pocetnaStrana");
     let w = "";
     let sekcija = document.getElementById("sirina");
+    let prozorKraj = document.getElementById("overlay");
+    prozorKraj.style.display = "none";
+
     polja.forEach(card => card.classList.add("start")); //tabla sa poljima je u startu sakrivena
-    //var x = document.getElementById("pocetnaStrana"); //za sakrivanje/otkrivanje pocetne strane
-    var klasa = document.getElementById("velicina").value //sta je izabrano
+
+    let klasa = document.getElementById("velicina").value; //sta je izabrano
 
     if (klasa == "S") {
         n = 6;
+        stil = "S";
         w = "32%";
-        sekcija.style.width = "70%";
+        sekcija.style.width = "60%";
         sekcija.style.marginTop = "10%"
     } else if (klasa == "M") {
         n = 12;
+        stil = "M";
         w = "24%";
-        sekcija.style.width = "80%";
+        sekcija.style.width = "70%";
         sekcija.style.marginTop = "2%";
     } else if (klasa == "L") {
         n = 18;
+        stil = "L";
         w = "15%";
-        sekcija.style.width = "95%";
+        sekcija.style.width = "90%";
         sekcija.style.marginTop = "1%";
         sekcija.style.marginLeft = "6%";
     }
 
-    function izgledTable(a) {
-
-        if (a == 6) {
-            stil = "S"
-        } else if (a == 12) {
-            stil = "M"
-        } else {
-            stil = "L"
-        }
-    }
     if (pocetak.style.display === "none") {
 
         pocetak.style.display = "block"; //prikazi pocetnu
@@ -130,7 +133,7 @@ function funkcijaStart() {
         boje = boje.concat(boje); //duplo boje za izabranu velicinu table
         niz.forEach(card => card.classList.remove("start")); //prikazi polja za igru, uklanja klasu         
         pocetak.style.display = "none"; //sakriva pocetnu stranicu
-        // document.getElementById("velicina").style.display = "none"; //iskljucujem/sakrivam prikaz pocetne strane tj izbornih polja  
+
 
         // inicijalna funkcija, startuje igru
         const init = function () {
@@ -156,36 +159,4 @@ function funkcijaStart() {
 
 
 
-// for (var i = 0; i < n; i++) {
 
-//     izabranaPolja[i] = polja[i];
-//     console.log(niz[i]);
-//     izabranaPolja[i].classList.add(klasa);
-//     for (let j = n; j < polja.length; j++) {
-//         polja[j].classList.add("sakrij");
-//     }
-
-//     pocetak.classList.add("sakrij");
-//     polja.forEach(card => card.classList.remove("start"));
-// document.getElementById("pocetna").style.display = "none"; -->
-// document.getElementById("velicina").style.display = "none"; -->
-//     init()
-// }
-// function myFunction() {
-//     // na sta uticem
-//     polja.forEach(card => card.classList.add("pocetak"))
-
-//     var x = document.getElementById("pocetna");
-//     if (x.style.display === "none") {
-
-//         x.style.display = "block";
-//     } else {
-//         x.style.display = "none";
-//         polja.forEach(card => card.classList.remove("pocetak"));
-//         document.getElementById("pocetna").style.display = "none"; //isto kao x.style.display ... ?
-//         document.getElementById("velicina").style.display = "none";
-//         init()
-//     }
-
-
-// }

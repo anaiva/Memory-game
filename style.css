@@ -3,11 +3,9 @@
     padding: 0px;
     box-sizing: border-box;
 }
-
 body {
-    background-color: antiquewhite;
+    background-color: blue;
 }
-
 section {
   
     width: 90%;
@@ -15,90 +13,39 @@ section {
     margin-top: 2%;
     display: flex;
     flex-wrap: wrap;
-    background-color: antiquewhite;
+    background-color: blue;
 }
-
-
-/* section div { */
-
-
-/* width: 200px; */
-
-
-/* height: 200px;     */
-
-
-/* background-image: repeating-linear-gradient(0.40turn, blue 32%, antiquewhite 35%, blue 38%); */
-
-
-/* flex-basis: 15%; */
-
-
-/* border-radius: 10px; */
-
-
-/* margin: 2px; */
-
-
-/* border: 2px solid rgb(190, 164, 226); */
-
-
-/* box-shadow: 3px 3px rgb(190, 164, 226); */
-
-
-/* } */
-
-section div {
-    /* flex: 15%; */
+section div {   
     height: 33.3vh;
-    /* background-color: rgb(112, 79, 155); */
-    /* background-image: repeating-linear-gradient(to right, rgb(112, 79, 155), antiquewhite, rgb(112, 79, 155)); */
-    /* background-image: repeating-linear-gradient(0.40turn, blue 32%, antiquewhite 35%, blue 38%); */
-    
-    /* flex-basis: 22.5%;
-    flex-basis: 30%; */
-    /* border-radius: 10px; */
-    margin: 2px;
-    /* border: 2px solid rgb(190, 164, 226);
-    box-shadow: 3px 3px rgb(190, 164, 226); */
+    margin: 2px; 
 }
-
 .crimson {
     background-color: crimson;
 }
-
 .yellow {
-    background-color: yellow;
+    background-color: gold;
 }
-
 .lawngreen {
     background-color: lawngreen;
 }
-
 .violet {
     background-color: rgb(185, 83, 185);
 }
-
 .aqua {
     background-color: aqua;
 }
-
 .orange {
-    background-color: rgb(255, 166, 0);
+    background-color: orangered;
 }
-
 .gray {
     background-color: gray;
 }
-
 .blue {
-    background-color: rgb(46, 59, 245);
+    background-color: rgb(28, 40, 209);
 }
-
 .darkgreen {
-    background-color: rgb(101, 184, 101);
+    background-color: rgb(5, 68, 5);
 }
-
 .crimson,
 .yellow,
 .lawngreen,
@@ -112,48 +59,18 @@ section div {
     box-shadow: 3px 3px rgb(190, 164, 226);
     border-radius: 10px;
 }
-
 .hidden {
     border: 2px solid rgb(190, 164, 226);
     box-shadow: 3px 3px rgb(190, 164, 226);
     background-image: repeating-linear-gradient(0.40turn, blue 32%, antiquewhite 35%, blue 38%);
     border-radius: 10px;
 }
-
 .off {
     background-color: antiquewhite;
 }
-
 .start {
     display: none;
 }
-
-/* .S div {
-    flex-basis: 30%;
-    width: 30%;
-    flex-grow: 1;
-    height: 33.33vh;
-}
-
-.M div {
-    flex-basis: 22.5%;
-    width: 22.5%;
-    flex-grow: 1;
-    height: 33.33vh;
-}
-
-.L div {
-    flex-basis: 15%;
-    width: 15%;
-    flex-grow: 1;
-    height: 33.33vh;
-} */
-
-
-/* .sakrij {
-    display: none;
-} */
-
 form {
     margin-top: 15%;
     font-size: 30px;
@@ -161,23 +78,41 @@ form {
     width: 32%;
     margin-left: 32%;
 }
-
 form,
 button {
-    border: 5px solid blue;
+    border: 5px solid antiquewhite;
     padding: 20px;
     text-align: center;
     font-weight: bold;
     background-color: blue;
-    box-shadow: 2px 2px rgb(3, 41, 167);
+    box-shadow: 2px 2px antiquewhite;
     color: antiquewhite;
-    text-shadow: 2px 2px rgb(3, 41, 167);
+    text-shadow: 2px 2px rgb(3, 41, 167);    
 }
-
 button {
     margin-top: 0px;
     border-radius: 5px;
     width: 100%;
     font-size: 25px;
     border: 3px solid antiquewhite;
+}
+#overlay {    
+    background-color: blue;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+}
+#text {
+    text-align: center;
+    margin-top: 30%;
+    color: antiquewhite;
+    font-size: 25px;
 }
