@@ -2,9 +2,24 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;    
 }
 body {
-    background-color: blue;
+    background-image: linear-gradient(
+        
+        rgba(138, 44, 226, 0.5) 0%,
+        rgba(253, 153, 0, 0.5) 50%,
+        rgba(253, 153, 0, 0.7) 50%,
+        rgba(253, 153, 0, 0.7) 100%
+        ),
+    linear-gradient(
+        to left,
+        rgba(138, 44, 226, 0.5) 0%,
+        rgba(253, 153, 0, 0.5) 50%,
+        rgba(253, 153, 0, 0.7) 50%,
+        rgba(253, 153, 0, 0.7) 100%
+        );
+
 }
 section {
   
@@ -12,8 +27,7 @@ section {
     margin: auto;
     margin-top: 2%;
     display: flex;
-    flex-wrap: wrap;
-    background-color: blue;
+    flex-wrap: wrap; 
 }
 section div {   
     height: 33.3vh;
@@ -29,13 +43,14 @@ section div {
     background-color: lawngreen;
 }
 .violet {
-    background-color: rgb(185, 83, 185);
+    background-color: rgb(223, 102, 223);
 }
 .aqua {
     background-color: aqua;
 }
 .orange {
-    background-color: orangered;
+    /* background-color: rgb(252, 97, 36); */
+    background-color: darkorange;
 }
 .gray {
     background-color: gray;
@@ -44,7 +59,7 @@ section div {
     background-color: rgb(28, 40, 209);
 }
 .darkgreen {
-    background-color: rgb(5, 68, 5);
+    background-color: rgb(44, 109, 25);
 }
 .crimson,
 .yellow,
@@ -55,15 +70,66 @@ section div {
 .gray,
 .blue,
 .darkgreen {
-    border: 2px solid rgb(190, 164, 226);
-    box-shadow: 3px 3px rgb(190, 164, 226);
+    border: 2px solid rgba(138, 44, 226, 0.5);
+    box-shadow: 3px 3px rgba(138, 44, 226, 0.7);
     border-radius: 10px;
+
+    transform: rotateY(0);	
+	cursor: default;
+	animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
 }
 .hidden {
-    border: 2px solid rgb(190, 164, 226);
-    box-shadow: 3px 3px rgb(190, 164, 226);
-    background-image: repeating-linear-gradient(0.40turn, blue 32%, antiquewhite 35%, blue 38%);
+    border: 2px solid rgba(138, 44, 226, 0.5);
+    box-shadow: 3px 3px rgba(138, 43, 226, 0.7);
+
+    transform: rotateY(0);	
+	cursor: default;
+	animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
+
+    /* background-image: repeating-linear-gradient(0.40turn, blue 32%, antiquewhite 35%, blue 38%); */
     border-radius: 10px;
+    background-color: blueviolet;
+    background-image:
+    linear-gradient(
+        
+        rgba(138, 44, 226, 0.5) 0%,
+        rgba(253, 153, 0, 0.5) 50%,
+        rgba(253, 153, 0, 0.7) 50%,
+        rgba(253, 153, 0, 0.7) 100%
+        ),
+    linear-gradient(
+        to left,
+        rgba(253, 153, 0, 0.5) 0%,
+        rgba(253, 153, 0, 0.5) 50%,
+        rgba(253, 153, 0, 0.7) 50%,
+        rgba(253, 153, 0, 0.7) 100%
+        );
+        background-size: 100px 100px;
+}
+
+
+
+.promasaj {
+    transform: rotateY(0);
+    cursor: default;
+    animation-name: flipInY;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;	
+}
+.pogodjen {
+    cursor: default;
+	font-size: 33px;
+	animation-name: rubberBand;
+	-webkit-backface-visibility: visible !important;
+	backface-visibility: visible !important;
+	animation-duration: .75s;
 }
 .off {
     background-color: antiquewhite;
@@ -73,31 +139,50 @@ section div {
 }
 form {
     margin-top: 15%;
-    font-size: 30px;
+    font-size: 25px;
     border-radius: 5px;
     width: 32%;
     margin-left: 32%;
 }
 form,
 button {
-    border: 5px solid antiquewhite;
-    padding: 20px;
+   
+    padding: 30px;
     text-align: center;
     font-weight: bold;
-    background-color: blue;
-    box-shadow: 2px 2px antiquewhite;
-    color: antiquewhite;
-    text-shadow: 2px 2px rgb(3, 41, 167);    
+    background-color: rgba(253, 153, 0, 0.5);
+    /* box-shadow: 2px 2px antiquewhite; */
+    color: rgb(76, 25, 124);
+    text-shadow: 2px 2px rgba(253, 153, 0, 0.5);    
 }
 button {
     margin-top: 0px;
+    border: 2px solid rgba(138, 43, 226, 0.7);
     border-radius: 5px;
     width: 100%;
-    font-size: 25px;
-    border: 3px solid antiquewhite;
+    font-size: 20px;
+    font-weight: bolder;
+    opacity: 90%;
+  
+}
+#velicina option {
+    background-color: rgba(253, 153, 0, 0.5);
+    color: rgb(76, 25, 124);
 }
 #overlay {    
-    background-color: blue;
+    background-image: linear-gradient(
+        rgba(138, 44, 226, 0.5) 0%,
+        rgba(253, 153, 0, 0.5) 50%,
+        rgba(253, 153, 0, 0.7) 50%,
+        rgba(253, 153, 0, 0.7) 100%
+        ),
+    linear-gradient(
+        to left,
+        rgba(253, 153, 0, 0.5) 0%,
+        rgba(253, 153, 0, 0.5) 50%,
+        rgba(253, 153, 0, 0.7) 50%,
+        rgba(253, 153, 0, 0.7) 100%        
+    );
     display: none;
     width: 100%;
     height: 100%;
@@ -112,7 +197,76 @@ button {
 }
 #text {
     text-align: center;
-    margin-top: 30%;
-    color: antiquewhite;
+    margin-top: 20%;
+    color: rgb(76, 25, 124);
+    font-weight: bolder;
     font-size: 25px;
 }
+@keyframes flipInY {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+		opacity: 0;
+	}
+
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+		opacity: 1;
+	}
+
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+
+	to {
+		transform: perspective(400px);
+	}
+}
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+@keyframes rubberBand {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, .95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+} 
+

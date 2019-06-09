@@ -40,6 +40,7 @@ const klikFunkcija = function () {
 
             if (izabranaPolja[0].className === izabranaPolja[1].className) {
                 console.log("Pogodjen par!")
+                izabranaPolja.forEach(card => card.classList.add("pogodjen"))
                 // izabranaPolja.forEach(card => card.classList.add("off"))
                 brojacUparenih++;
                 console.log(brojacUparenih);
@@ -58,23 +59,27 @@ const klikFunkcija = function () {
                         const gameTime = (endTime - startTime) / 1000
 
                         setTimeout(function () {
-                            document.getElementById("text").innerHTML = "Broj poteza: " + brojacKlikova +'<br />'+ " Vreme igre: "+gameTime+" sec"},1500);
-                        // setTimeout(function ( ){location.reload();},4000);
-                                    
+                            document.getElementById("text").innerHTML = "Broj poteza: " + brojacKlikova + '<br />' + " Vreme igre: " + gameTime + " sec"
+                        }, 1500);
+                        setTimeout(function ( ){location.reload();},4000);
 
-                        }
-                        on() 
-                        prozorKraj.onclick = function offf() { location.reload() };
+
                     }
-                } else {
-                    console.log("Promasaj")
-                    izabranaPolja.forEach(card => card.classList.add("hidden"))
+                    on()
+                    prozorKraj.onclick = function offf() { location.reload() };
                 }
-                aktivnoPolje = ""; // reset
-                izabranaPolja.length = 0; //prazan niz
-                niz.forEach(card => card.addEventListener("click", klikFunkcija))
+            } else {
+                console.log("Promasaj")
+                izabranaPolja.forEach(card => card.classList.add("promasaj"))
+                izabranaPolja.forEach(card => card.classList.remove("promasaj"))
+                izabranaPolja.forEach(card => card.classList.add("hidden"))
+                // izabranaPolja.forEach(card => card.classList.remove("promasaj"))
+            }
+            aktivnoPolje = ""; // reset
+            izabranaPolja.length = 0; //prazan niz
+            niz.forEach(card => card.addEventListener("click", klikFunkcija))
 
-            }, 1000)
+        }, 1000)
     }
 };
 
