@@ -19,7 +19,7 @@ body {
         rgba(253, 153, 0, 0.7) 100%);
 }
 
-/* pocetna strana*/
+/* tabla za igru*/
 #tabla {
     margin: auto;
     display: flex;
@@ -149,7 +149,6 @@ button {
     font-size: 20px;
     font-weight: bolder;
     opacity: 90%;
-
 }
 
 /*kraj, poslednji pop-up*/
